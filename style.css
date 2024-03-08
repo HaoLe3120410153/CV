@@ -199,11 +199,5 @@ a:hover {
     .right-column img {
         max-width: 100%;
     }
-
-    .description {
-        /* Định nghĩa các thuộc tính CSS tại đây */
-        display: none;
-    }
-
 }
 
