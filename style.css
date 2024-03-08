@@ -1,6 +1,6 @@
 body,
 html {
-    height: 90%;
+    height: 80%;
     margin: 20dp;
     padding: 20dp;
 }
@@ -15,30 +15,28 @@ html {
 
 .left-column {
     padding: 20px;
-    width: 80%;
-    height: 50%;
+    width: 100%; /* Thay đổi kích thước của left-column thành 100% để nó chiếm toàn bộ chiều rộng của parent */
+    height: 100%; /* Cũng đặt chiều cao thành 100% */
     position: relative;
-    margin-left: 250px;
     display: flex;
     justify-content: center;
-    align-items: center; /* Căn giữa theo hàng dọc */
-    margin-top: -100px; /* Thay đổi giá trị margin-top tại đây */
+    align-items: center;
     text-align: justify;
 }
 
-.personal-info {
+#personal-info {
     height: auto;
     position: fixed;
     width: 30%;
-    left: 5%; /* Đảm bảo div personal-info nằm ở vị trí bên trái */
-    top: 50%; /* Đưa div personal-info vào giữa màn hình theo chiều dọc */
-    transform: translateY(-50%); /* Căn giữa div personal-info theo chiều dọc */
+    left: 5%;
+    top: 50%;
+    transform: translateY(-50%);
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.personal-info a {
+#personal-info a {
     color: #ff0000;
     text-decoration: none;
     font: 14px / 1.5 "Noto Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -53,32 +51,33 @@ a:hover {
     font-weight: bold;
 }
 
-.personal-info h2 {
+#personal-info h2 {
     color: #021111;
-    max-width: 100%; /* Đảm bảo tiêu đề không bị tràn ra ngoài */
+    max-width: 100%;
     text-align: center;
-    margin-top: 10px; /* Đều đặn khoảng cách với các phần tử khác */
+    margin-top: 10px;
 }
 
-.personal-info img {
+#personal-info img {
     width: 150px;
     height: 150px;
     border-radius: 50%;
-    margin-top: 10px; /* Đều đặn khoảng cách với các phần tử khác */
+    margin-top: 10px;
 }
 
-.personal-info #link_info {
+#link_info {
     margin: 5%;
     text-align: center;
 }
 
-.personal-info #description {
+#description {
     max-width: 350px;
-    line-height:33px;
+    line-height: 33px;
     margin-left: 50px;
     color: #000000;
-    font-size: 16px
+    font-size: 16px;
 }
+
 
 .right-column {
     width: 80%;
@@ -139,7 +138,7 @@ a:hover {
         text-align: justify;
     }
 
-    .personal-info {
+    #personal-info {
         height: auto;
         position: fixed;
         width: 30%;
@@ -169,10 +168,6 @@ a:hover {
         max-width: 65%;
     }
 }
-
-
-
-/* CSS cho các thiết bị có độ rộng màn hình nhỏ hơn 768px */
 @media screen and (max-width: 767px) {
     .wrapper {
         display: flex;
@@ -184,20 +179,34 @@ a:hover {
         margin: 0;
         padding: 20px;
         text-align: center;
+        display: flex;
+        flex-direction: column; /* Chuyển sang dạng cột để personal-info nằm trên cùng */
+        justify-content: center;
+        align-items: center;
     }
-
-    .personal-info {
-        position: static;
+    
+    #personal-info {
+        height: auto;
+        position: relative;
         width: 100%;
+        max-width: 350px; /* Đảm bảo personal-info không rộng hơn 350px */
+        padding: 20px;
+        box-sizing: border-box;
+        text-align: justify; /* Căn lề cho nội dung trong personal-info */
+        z-index: 10; /* Tăng giá trị z-index của personal-info */
     }
 
     .right-column {
         margin-right: 0;
         padding: 20px;
+        width: 100%;
+        z-index: 5; /* Giảm giá trị z-index của right-column để personal-info hiển thị phía trước */
     }
 
     .right-column img {
         max-width: 100%;
     }
 }
+
+
 
